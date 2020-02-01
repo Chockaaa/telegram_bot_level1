@@ -2,6 +2,7 @@
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from telegram.ext import MessageHandler, Filters
+import zodiac
 
 # Variables
 updater = Updater(token='1088724944:AAGxVJWykfDkTEO1R2k3L_QgM-7t9-REyEw', use_context=True)
@@ -15,7 +16,11 @@ def echo(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
 
 def setDate(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Temp")
+    ddmm=update.message.text[9:]
+    dd=int(ddmm[:2])
+    mm=int(ddmm[2:])
+    sign=zodiac.getSign(dd,mm)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="You are sign is "+sign)
 
 def horoscope(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Result")
