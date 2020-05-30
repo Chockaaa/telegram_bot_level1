@@ -1,2 +1,2 @@
 # telegram_bot_level1
-My first telgrambot to check the horoscope based on the date of birth
+My first telgrambot which aims to check the horoscope of the user based on the date of birth
